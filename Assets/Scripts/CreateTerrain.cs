@@ -5,25 +5,28 @@ public class CreateTerrain : MonoBehaviour
 {
     public Shader shader;
     public PointLight pointLight;
-    private int HEIGHTMAPRESOLUTION = 513;
-    private int basicHeight = 250;
-    public TerrainData terrainData;
+    public int HEIGHTMAPRESOLUTION = 513;
+    public int basicHeight = 250;
+    private TerrainData terrainData;
     public Terrain CurrentTerrainData;
     
     // Use this for initialization
     void Start()
     {
-        //Create Terrain
         GameObject earth;
         earth = new GameObject();
+        TerrainData terrainData;
         //Generate TerrainData
         terrainData = this.CreateTerrainData();
         earth = Terrain.CreateTerrainGameObject(terrainData);
         earth.name = "Earth";
-        
+
         //Set Position
         Vector3 position = new Vector3(0f, 0f, 0f);
+
+        //Create Terrain
         Instantiate(earth, position, Quaternion.identity);
+
     }
 
     // Update is called once per frame
